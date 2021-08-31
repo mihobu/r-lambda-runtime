@@ -40,11 +40,10 @@ git clone https://github.com/mihobu/r-lambda-runtime.git
 
 ## Build the Docker image
 
-Go to the directory containing the source files and build the image. _This may take a few minutes._
+Go to the directory containing the source files (`r-lambda-runtime`) and then build the image. _This may take a few minutes._
 
 ```
-$ cd r-lambda-runtime
-$ docker build -t mburkhardt/r4-on-lambda .
+docker build -t mburkhardt/r4-on-lambda .
 ```
 
 ## Test the Image Locally
