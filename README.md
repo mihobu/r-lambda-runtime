@@ -60,22 +60,22 @@ Then, in a separate terminal:
 curl -X POST "http://localhost:9000/2015-03-31/functions/function/invocations" -d '{"dimensionality": 1,"num-records":1000}'
 ```
 
-## Push the Image to your ECS Repository
+## Tag and Push the Image
 
-First, retrieve an authentication token and authenticate your Docker
-client to your registry. To do this, use the AWS CLI. _Be sure to update the command line with your account number._
-
-```
-aws ecr get-login-password --region us-east-2 | docker login --username AWS --password-stdin XXXXXXXXXXXX.dkr.ecr.us-east-2.amazonaws.com
-```
-
-Tag your image so you can push it to your repository:
+Tag your image with the name of your ECS repository.
 
 ```
 docker tag r4-on-lambda:latest XXXXXXXXXXXX.dkr.ecr.us-east-2.amazonaws.com/r4-on-lambda:latest
 ```
 
-Run the following command to push this image to your newly created AWS repository. _This too may take a few minutes._
+Retrieve an authentication token and authenticate your Docker client to your registry.
+To do this, use the AWS CLI. _Be sure to update the command line with your account number._
+
+```
+aws ecr get-login-password --region us-east-2 | docker login --username AWS --password-stdin XXXXXXXXXXXX.dkr.ecr.us-east-2.amazonaws.com
+```
+
+Push this image to your newly created AWS repository. _This too may take a few minutes._
 
 ```
 docker push XXXXXXXXXXXX.dkr.ecr.us-east-2.amazonaws.com/r4-on-lambda:latest
