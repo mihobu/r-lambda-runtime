@@ -15,7 +15,7 @@ and error, I was able to get it working with my own R code and a few changes to 
 
 ## Getting Started
 
-You'll also need to create a repository in the Elastic Container Store (ECS). Go to the ECS Service page, click *Create repository*
+You'll also need to create a repository in the Elastic Container Store (ECS). Go to the ECS Service page, click **Create repository**
 and follow the directions. Make note of the repository name. For this demo, I called mine `r4-on-lambda`. Alternatively,
 you can do this from the command line using the AWS CLI, as follows:
 
@@ -85,12 +85,12 @@ docker push XXXXXXXXXXXX.dkr.ecr.us-east-2.amazonaws.com/r4-on-lambda:latest
 
 Go to the Lambda service page, then follow these steps:
 
-1. Click *Create function*.
+1. Click **Create function**.
 2. Select the "Container image" option.
 3. Give your function a name.
-4. Select the image you just created using the *Browse Images* button.
+4. Select the image you just created using the **Browse Images** button.
 5. Under permissions, make sure you select the appropriate execution role.
-6. In the field labeled *ENTRYPOINT* enter `handler.sclrp`
+6. In the field labeled **CMD override**, enter `handler.sclrp`
 7. Set the function timeout to 20 seconds.
 
 Once the function is created, you can test. Be sure to include the required parameters in the test event. For example:
