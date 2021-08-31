@@ -40,13 +40,6 @@ git clone https://github.com/mihobu/r-lambda-runtime.git
 
 ## Build the Docker image
 
-First, retrieve an authentication token and authenticate your Docker
-client to your registry. To do this, use the AWS CLI. _Be sure to update the command line with your account number._
-
-```
-aws ecr get-login-password --region us-east-2 | docker login --username AWS --password-stdin XXXXXXXXXXXX.dkr.ecr.us-east-2.amazonaws.com
-```
-
 Go to the directory containing the source files and build the image. _This may take a few minutes._
 
 ```
@@ -54,7 +47,30 @@ $ cd r-lambda-runtime
 $ docker build -t mburkhardt/r4-on-lambda .
 ```
 
-After the build completes, tag your image so you can push it to your repository:
+## Test the Image Locally
+
+Spin up the image.
+
+```
+$ docker run -p 9000:8080 mburkhardt/r4-on-lambda "sclrp.handler"
+```
+
+Then, in a separate terminal:
+
+```
+curl -X POST "http://localhost:9000/2015-03-31/functions/function/invocations" -d '{"dimensionality": 1,"num-records":1000}'
+```
+
+## Push the Image to your ECS Repository
+
+First, retrieve an authentication token and authenticate your Docker
+client to your registry. To do this, use the AWS CLI. _Be sure to update the command line with your account number._
+
+```
+aws ecr get-login-password --region us-east-2 | docker login --username AWS --password-stdin XXXXXXXXXXXX.dkr.ecr.us-east-2.amazonaws.com
+```
+
+Tag your image so you can push it to your repository:
 
 ```
 docker tag r4-on-lambda:latest 400999793714.dkr.ecr.us-east-2.amazonaws.com/r4-on-lambda:latest
@@ -66,8 +82,3 @@ Run the following command to push this image to your newly created AWS repositor
 docker push 400999793714.dkr.ecr.us-east-2.amazonaws.com/r4-on-lambda:latest
 ```
 
-## Test the Image Locally
-
-```
-$ docker run -p 9000:8080 mburkhardt/r4-on-lambda "sclrp.handler"
-```
