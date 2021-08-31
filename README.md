@@ -37,4 +37,10 @@ $ cd r-lambda-runtime
 $ docker build -t mburkhardt/r4-on-lambda .
 ```
 
+_This may take a few minutes._
 
+## Test the Image Locally
+
+```
+$ docker run -p 9000:8080 mburkhardt/r4-on-lambda "sclrp.handler"
+```
