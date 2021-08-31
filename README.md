@@ -90,7 +90,7 @@ Go to the Lambda service page, then follow these steps:
 3. Give your function a name.
 4. Select the image you just created using the **Browse Images** button.
 5. Under permissions, make sure you select the appropriate execution role.
-6. In the field labeled **CMD override**, enter `handler.sclrp`
+6. In the field labeled **CMD override**, enter `sclrp.handler`
 7. Set the function timeout to 20 seconds.
 
 Once the function is created, you can test. Be sure to include the required parameters in the test event. For example:
