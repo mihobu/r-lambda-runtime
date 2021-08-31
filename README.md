@@ -51,7 +51,7 @@ docker build -t mburkhardt/r4-on-lambda .
 Run a container locally using the new image.
 
 ```
-$ docker run -p 9000:8080 mburkhardt/r4-on-lambda "sclrp.handler"
+docker run -p 9000:8080 mburkhardt/r4-on-lambda "sclrp.handler"
 ```
 
 Then, in a separate terminal:
