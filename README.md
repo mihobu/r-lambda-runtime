@@ -57,7 +57,7 @@ docker run -p 9000:8080 mburkhardt/r4-on-lambda "sclrp.handler"
 Then, in a separate terminal:
 
 ```
-curl -X POST "http://localhost:9000/2015-03-31/functions/function/invocations" -d '{"dimensionality": 1,"num-records":1000}'
+curl -X POST "http://localhost:9000/2015-03-31/functions/function/invocations" -d '{"dimensionality": 5,"num-records":1000}'
 ```
 
 ## Tag and Push the Image
