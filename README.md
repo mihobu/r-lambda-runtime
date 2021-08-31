@@ -16,7 +16,12 @@ and error, I was able to get it working with my own R code and a few changes to 
 ## Getting Started
 
 You'll also need to create a repository in the Elastic Container Store (ECS). Go to the ECS Service page, click *Create repository*
-and follow the directions. Make note of the repository name. For this demo, I called mine `r4-on-lambda`.
+and follow the directions. Make note of the repository name. For this demo, I called mine `r4-on-lambda`. Alternatively,
+you can do this from the command line using the AWS CLI, as follows:
+
+```
+aws ecr create-repository --repository-name r4-on-lambda --image-scanning-configuration scanOnPush=true
+```
 
 You'll need a place to buid your Docker image. You can do this with Windows or MacOS, but I opted for a small
 (t2.micro) EC2 instance that I accessed via SSH:
