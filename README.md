@@ -24,10 +24,10 @@ aws ecr create-repository --repository-name r4-on-lambda --image-scanning-config
 ```
 
 You'll need a place to buid your Docker image. You can do this with Windows or MacOS, but I opted for a small
-(t2.micro) EC2 instance that I accessed via SSH:
+(t2.micro) EC2 instance that I accessed via SSH. _Be sure to adjust the path to your key file appropriately._
 
 ```
-ssh -l ec2-user ec2-xxx-xxx-xxx-xxx.us-east-2.compute.amazonaws.com
+ssh -i ~/keys/mw-ec2-key.pem ec2-user@ec2-3-144-17-200.us-east-2.compute.amazonaws.com
 ```
 
 ## Get the Files
