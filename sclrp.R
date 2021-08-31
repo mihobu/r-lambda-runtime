@@ -6,7 +6,7 @@
 # (fitted) coefficients, and AIC. There are two required parameters:
 #   dimensionality : number of features
 #   num-records    : number of records to generate
-#   
+#
 handler <- function(...) {
   opt <- list(...)
 
@@ -30,7 +30,7 @@ handler <- function(...) {
 
   # Return results
   list(
-    error=model$error,
+    mse=mean(model$residuals^2),
     coefficients=model$coefficients,
     aic=model$aic
   )
