@@ -81,3 +81,21 @@ Push this image to your newly created AWS repository. _This too may take a few m
 docker push XXXXXXXXXXXX.dkr.ecr.us-east-2.amazonaws.com/r4-on-lambda:latest
 ```
 
+## Create the Lambda function
+
+Go to the Lambda service page, then follow these steps:
+
+1. Click *Create function*.
+2. Select the "Container image" option.
+3. Give your function a name.
+4. Select the image you just created using the *Browse Images* button.
+5. Under permissions, make sure you select the appropriate execution role.
+
+Once the function is created, you can test. Be sure to include the required parameters in the test event. For example:
+
+```
+{
+   "dimensionality": 5,
+   "num-records": 1000
+}
+```
