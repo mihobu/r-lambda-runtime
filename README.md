@@ -32,9 +32,9 @@ $ git clone https://github.com/mihobu/r-lambda-runtime.git
 
 ## Build the Docker Container
 
-Change to the clone directory:
-
 ```
 $ cd r-lambda-runtime
+$ docker build -t mburkhardt/r4-on-lambda .
 ```
+
 
