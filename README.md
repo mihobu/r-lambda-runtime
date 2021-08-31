@@ -49,6 +49,18 @@ $ cd r-lambda-runtime
 $ docker build -t mburkhardt/r4-on-lambda .
 ```
 
+After the build completes, tag your image so you can push it to your repository:
+
+```
+docker tag r4-on-lambda:latest 400999793714.dkr.ecr.us-east-2.amazonaws.com/r4-on-lambda:latest
+```
+
+Run the following command to push this image to your newly created AWS repository:
+
+```
+docker push 400999793714.dkr.ecr.us-east-2.amazonaws.com/r4-on-lambda:latest
+```
+
 ## Test the Image Locally
 
 ```
