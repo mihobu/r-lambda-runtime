@@ -15,11 +15,14 @@ and error, I was able to get it working with my own R code and a few changes to 
 
 ## Getting Started
 
+You'll also need to create a repository in the Elastic Container Store (ECS). Go to the ECS Service page, click *Create repository*
+and follow the directions. Make note of the repository name. For this demo, I called mine `r4-on-lambda`.
+
 You'll need a place to buid your Docker image. You can do this with Windows or MacOS, but I opted for a small
 (t2.micro) EC2 instance that I accessed via SSH:
 
 ```
-$ ssh -l ec2-user ec2-xxx-xxx-xxx-xxx.us-east-2.compute.amazonaws.com
+ssh -l ec2-user ec2-xxx-xxx-xxx-xxx.us-east-2.compute.amazonaws.com
 ```
 
 ## Get the Files
@@ -27,17 +30,24 @@ $ ssh -l ec2-user ec2-xxx-xxx-xxx-xxx.us-east-2.compute.amazonaws.com
 Clone this repo. One way to do this is to run the following command at the shell prompt:
 
 ```
-$ git clone https://github.com/mihobu/r-lambda-runtime.git
+git clone https://github.com/mihobu/r-lambda-runtime.git
 ```
 
-## Build the Docker Container
+## Build the Docker image
+
+First, retrieve an authentication token and authenticate your Docker
+client to your registry. To do this, use the AWS CLI. _Be sure to update the command line with your account number._
+
+```
+aws ecr get-login-password --region us-east-2 | docker login --username AWS --password-stdin XXXXXXXXXXXX.dkr.ecr.us-east-2.amazonaws.com
+```
+
+Go to the directory containing the source files and build the image. _This may take a few minutes._
 
 ```
 $ cd r-lambda-runtime
 $ docker build -t mburkhardt/r4-on-lambda .
 ```
-
-_This may take a few minutes._
 
 ## Test the Image Locally
 
