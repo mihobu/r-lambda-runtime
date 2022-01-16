@@ -2,7 +2,7 @@
 
 _How to build an R runtime for AWS Lambda_
 
-Updated 2021-Aug-31 by [Michael Burkhardt](mailto:michael@monkeywalk.com)
+Updated 2022-Jan-16 by [Michael Burkhardt](mailto:michael@monkeywalk.com)
 
 ---
 
