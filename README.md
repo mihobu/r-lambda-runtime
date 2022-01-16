@@ -93,6 +93,8 @@ Push this image to your newly created AWS repository. _This too may take a few m
 docker push XXXXXXXXXXXX.dkr.ecr.us-east-2.amazonaws.com/r4-on-lambda:latest
 ```
 
+_Note: If you are using SageMaker terminal, you'll need to make sure your SageMaker role has ECR permissions._
+
 ## Create the Lambda function
 
 Go to the Lambda service page, then follow these steps:
