@@ -23,7 +23,7 @@ you can do this from the command line using the AWS CLI, as follows:
 aws ecr create-repository --repository-name r4-on-lambda --image-scanning-configuration scanOnPush=true
 ```
 
-You'll need a place to buid your Docker image. You can do this with Windows or MacOS, but I opted for a small
+You'll need a place to build your Docker image. You can do this with Windows or MacOS, but I opted for a small
 (t2.micro) EC2 instance that I accessed via SSH. If you're a SageMaker user, using the Terminal from a notebook
 instance is another available option. _In any case, be sure to adjust the path to your key file appropriately._
 
