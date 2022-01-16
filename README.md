@@ -24,10 +24,23 @@ aws ecr create-repository --repository-name r4-on-lambda --image-scanning-config
 ```
 
 You'll need a place to buid your Docker image. You can do this with Windows or MacOS, but I opted for a small
-(t2.micro) EC2 instance that I accessed via SSH. _Be sure to adjust the path to your key file appropriately._
+(t2.micro) EC2 instance that I accessed via SSH. If you're a SageMaker user, using the Terminal from a notebook
+instance is another available option. _In any case, be sure to adjust the path to your key file appropriately._
 
 ```
 ssh -i ~/keys/mw-ec2-key.pem ec2-user@ec2-3-144-17-200.us-east-2.compute.amazonaws.com
+```
+
+## Start with a clean slate (optional)
+
+I'm not a Docker expert, so I like to make sure my Docker server is clean if I've been doing work there before.
+You can skip this step if you're starting from scratch or if you have a much better idea of what's going on
+with Docker. If you want, you can use the following two commands to clean up any Docker processes or images that
+are lying around.
+
+```
+$ for cid in `docker ps -a -q`; do docker rm -f $cid; done
+$ for iid in `docker images -q`; do docker rmi -f $iid; done
 ```
 
 ## Get the Files
@@ -43,8 +56,11 @@ git clone https://github.com/mihobu/r-lambda-runtime.git
 Go to the directory containing the source files (`r-lambda-runtime`) and then build the image. _This will take a few minutes._
 
 ```
-docker build -t mburkhardt/r4-on-lambda .
+$ cd r-lambda-runtime
+$ docker build -t mburkhardt/r4-on-lambda .
 ```
+
+_This may take a few minutes._
 
 ## Test the Image Locally
 
