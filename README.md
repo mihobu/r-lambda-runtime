@@ -77,7 +77,7 @@ curl -X POST "http://localhost:9000/2015-03-31/functions/function/invocations" -
 Tag your image with the name of your ECS repository.
 
 ```
-docker tag r4-on-lambda:latest XXXXXXXXXXXX.dkr.ecr.us-east-2.amazonaws.com/r4-on-lambda:latest
+docker tag mburkhardt/r4-on-lambda:latest XXXXXXXXXXXX.dkr.ecr.us-east-2.amazonaws.com/r4-on-lambda:latest
 ```
 
 Retrieve an authentication token and authenticate your Docker client to your registry.
