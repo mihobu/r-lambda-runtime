@@ -27,10 +27,6 @@ You'll need a place to build your Docker image. You can do this with Windows or 
 (t2.micro) EC2 instance that I accessed via SSH. If you're a SageMaker user, using the Terminal from a notebook
 instance is another available option. _In any case, be sure to adjust the path to your key file appropriately._
 
-```
-ssh -i ~/keys/mw-ec2-key.pem ec2-user@ec2-3-144-17-200.us-east-2.compute.amazonaws.com
-```
-
 ## Start with a clean slate (optional)
 
 I'm not a Docker expert, so I like to make sure my Docker server is clean if I've been doing work there before.
